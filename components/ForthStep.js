@@ -2,15 +2,13 @@ import { useState, useCallback } from 'react';
 import { Flex, Text, Button, Input } from '@chakra-ui/react';
 
 const ForthStep = ({ onSuccess, onFailure }) => {
-    const [value, setValue] = useState(0);
+    const [value, setValue] = useState('');
 
     const handleChange = useCallback(e => {
         setValue(e.target.value);
     }, []);
 
     const handleAnswer = useCallback(() => {
-        console.log(value);
-
         if (+value === 9) {
             onSuccess();
         } else {
@@ -52,6 +50,7 @@ const ForthStep = ({ onSuccess, onFailure }) => {
                     type='number'
                     onChange={handleChange}
                     value={value}
+                    placeholder={0}
                 />
 
                 <Button
